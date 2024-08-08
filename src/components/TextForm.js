@@ -12,6 +12,8 @@ export default function TextForm(prop){
         
     }
     return (
+
+    <>
         <div>
 
             <h3 className="container">{prop.heading}</h3>
@@ -20,6 +22,11 @@ export default function TextForm(prop){
             </div>
             <button className="btn btn-primary" onClick = {handleUppercase}>convert to uppercase</button>
         </div>
+        <div className="container">
+            <h3>Text Summary</h3>
+            <p>{text.split(" ").length} words amd {text.length} charectes</p>
+        </div>
+    </>
 
     );
 }
