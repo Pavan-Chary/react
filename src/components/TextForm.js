@@ -9,7 +9,7 @@ export default function TextForm(props){
     const handleUppercase =()=>{
         console.log("Button CLicked");
         setText(text.toUpperCase());
-        
+        props.showAlert("warning","Text is changed to uppercase");
     }
     return (
 
