@@ -5,6 +5,12 @@ import TextForm from './components/TextForm';
 import About from './components/About';
 import Alert from './components/Alert';
 import {useState} from 'react'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 function App() {
@@ -47,12 +53,21 @@ function App() {
 
   return (
     <>
+    <Router>
     <Navba title="Chary" mode={mode} myStyle={myStyle} func={handleOnClick}/>
-    <Alert alert={alert}/>
+      <Alert alert={alert}/>
       <div className="container">
-      <TextForm heading="Enter something" mode={mode} myStyle={myStyle} func={handleOnClick}  showAlert={showAlert}/>
-      <About mode={mode} myStyle={myStyle} func={handleOnClick}/>
+    <Routes>
+              <Route exact path='/' element={<TextForm heading="Enter something" mode={mode} myStyle={myStyle} func={handleOnClick}  showAlert={showAlert}/>}>
+                  
+              </Route>
+              <Route exact path='/About' element={<About mode={mode} myStyle={myStyle} func={handleOnClick}/>}>
+                  
+              </Route>
+          </Routes>
+
       </div>
+        </Router>
   </>
   );
 }
